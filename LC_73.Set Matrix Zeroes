@@ -1,0 +1,45 @@
+class Solution {
+    
+    public void makeNegative(int[][]matrix,int rowNo, int colNo){
+        int row = matrix.length;
+        int col = matrix[0].length;
+        for(int i=0;i<col;i++){
+            if(matrix[rowNo][i] != 0){
+                matrix[rowNo][i] = -10;
+            }
+        }
+        for(int i=0;i<row;i++){
+            if(matrix[i][colNo] != 0){
+                matrix[i][colNo] = -10;
+            }
+        }
+    }
+    public void makeZeroes(int[][]matrix){
+        int row = matrix.length;
+        int col = matrix[0].length;
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                if(matrix[i][j] == -10){
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+    public void setZeroes(int[][] matrix) {
+        int row = matrix.length;
+        int col = matrix[0].length;
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                if(matrix[i][j] == 0){
+                    int rowNo = i;
+                    int colNo = j;
+                    makeNegative(matrix,rowNo,colNo);
+                    //Make entire row and col as -01 except those elements that are 0.
+                    //matrix[i][]
+                }
+            }
+        }
+        makeZeroes(matrix);
+    }
+   
+}
